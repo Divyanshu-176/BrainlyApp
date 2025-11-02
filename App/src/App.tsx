@@ -1,47 +1,12 @@
-import { useState } from 'react'
 import './App.css'
-import { Button } from './components/ui/Button'
-import { Card } from './components/ui/Card'
-import { CreateContentModal } from './components/ui/CreateContentModal'
-import { PlusIcon } from './icons/PlusIcon'
-import { ShareIcon } from './icons/ShareIcon'
-import { Sidebar } from './components/ui/Sidebar'
+import { Dashboard } from './components/ui/Dashboard'
+
 
 function App() {
-  const [modalOpen, setModalOpen] = useState(false)
 
-  return (<div>
-
-    <Sidebar/>
-
-    <div className='ml-76 p-4 min-h-screen bg-gray-100'>
-
-      <div className='opacity-80'>
-        <CreateContentModal open={modalOpen} onClose={()=>{setModalOpen(false)}} />
-      </div>
-
-      <div className='flex justify-between gap-4'>
-        <span className='pl-1 font-semibold text-4xl'>Add Notes</span>
-        <div className='flex justify-end gap-4'>
-          <Button onClick={()=>{setModalOpen(true)}} size="md" variant="primary" text="Add content" startIcon={<PlusIcon size={"md"}/>}/>
-          <Button size="md" variant="secondary" text="share" startIcon={<ShareIcon size={"md"}/>} />
-        </div>
-        
-      </div>
-      
-
-
-
-      <div className='flex gap-4 mt-4'>
-        <Card title='Youtube videos' link='https://www.youtube.com/watch?v=LL5pu9GzziA' type='youtube'/>
-        <Card title='Important tweet' link='https://x.com/piyush100x/status/1984972162747560005' type='twitter'/>
-      </div>
+  return (
+    <Dashboard/>
     
-    
-    
-    </div>
-
-</div>
   )
 }
 
