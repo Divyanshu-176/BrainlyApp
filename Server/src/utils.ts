@@ -1,4 +1,4 @@
-export function random(len:number){
+export function randomgen(len:number){
     let options = "qwertyuiopasdfghjklzxcvbnm1234567890";
     let length = options.length;
 
