@@ -66,10 +66,11 @@ interface extendedReq extends Request{
 
 
 app.post("/api/content",userMiddleware , async (req:extendedReq,res)=>{
-    const {title,link} = req.body
+    const {title,link,type} = req.body
     await contentModel.create({
         title,
         link,
+        type,
         userId: req.userId,
         tags:[] 
     })
