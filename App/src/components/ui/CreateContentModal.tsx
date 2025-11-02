@@ -19,6 +19,7 @@ export const CreateContentModal =({open, onClose}:{open:boolean, onClose:()=>voi
     const [type, setType] = useState(Contenttype.Youtube)
 
     async function addContent(){
+        
         const title = titleRef.current?.value;
         const link = linkRef.current?.value
 
@@ -47,10 +48,10 @@ export const CreateContentModal =({open, onClose}:{open:boolean, onClose:()=>voi
 
                     <div className="flex gap-2 justify-center mt-4">
                         <Button text="Youtube" variant={type===Contenttype.Youtube ? "primary":"secondary"} size="md" onClick={()=>{setType(Contenttype.Youtube)}}/>
-                        <Button text="Youtube" variant={type===Contenttype.Youtube ? "primary":"secondary"} size="md" onClick={()=>{setType(Contenttype.Twitter)}}/>
+                        <Button text="Twitter" variant={type===Contenttype.Youtube ? "primary":"secondary"} size="md" onClick={()=>{setType(Contenttype.Twitter)}}/>
                     </div>
 
-                    <div className="flex justify-center text-semibold mt-4">
+                    <div className="flex justify-center text-semibold mt-4" onClick={onClose}>
                         <Button variant="primary" text="Add Content" size="md" startIcon={<PlusIcon size="md"/>} onClick={addContent}/>
                     </div>
                     
