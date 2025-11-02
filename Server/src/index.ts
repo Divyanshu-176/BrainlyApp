@@ -164,6 +164,13 @@ app.get("/api/brain/:sharelink", async (req,res)=>{
         hash
     })
 
+    if(!link){
+        res.status(411).json({
+            msg:"shared link not found"
+        })
+        return;
+    }
+
     const content = await contentModel.find({
         userId:link?.userId
     })
@@ -172,6 +179,12 @@ app.get("/api/brain/:sharelink", async (req,res)=>{
         _id:link?.userId
     })
 
+    if(!user){
+        res.status(411).json({
+            msg:"user not found"
+        })
+        return;
+    }
 
     res.json({
         username:user?.username,
