@@ -36,6 +36,7 @@ export function Dashboard() {
       <div className='flex gap-4 mt-4'>
         <Card title='Youtube videos' link='https://www.youtube.com/watch?v=LL5pu9GzziA' type='youtube'/>
         <Card title='Important tweet' link='https://x.com/piyush100x/status/1984972162747560005' type='twitter'/>
+        <Card title='Random' type='other'/>
       </div>
     
     

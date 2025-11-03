@@ -10,7 +10,8 @@ import { BACKEND_URL } from "../../config"
 
 enum Contenttype{
     Youtube="youtube",
-    Twitter="twitter"
+    Twitter="twitter",
+    Other="other"
 }
 
 export const CreateContentModal =({open, onClose}:{open:boolean, onClose:()=>void})=>{
@@ -49,6 +50,7 @@ export const CreateContentModal =({open, onClose}:{open:boolean, onClose:()=>voi
                     <div className="flex gap-2 justify-center mt-4">
                         <Button text="Youtube" variant={type===Contenttype.Youtube ? "primary":"secondary"} size="md" onClick={()=>{setType(Contenttype.Youtube)}}/>
                         <Button text="Twitter" variant={type===Contenttype.Youtube ? "primary":"secondary"} size="md" onClick={()=>{setType(Contenttype.Twitter)}}/>
+                        <Button text="Other" variant={type===Contenttype.Other ? "primary":"secondary"} size="md" onClick={()=>{setType(Contenttype.Other)}}/>
                     </div>
 
                     <div className="flex justify-center text-semibold mt-4" onClick={onClose}>
