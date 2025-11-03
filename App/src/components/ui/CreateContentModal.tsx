@@ -5,6 +5,7 @@ import { Button } from "./Button"
 import { Input } from "./Input"
 import axios from "axios"
 import { BACKEND_URL } from "../../config"
+import { useContent } from "../../hooks/useContent"
 
 
 
@@ -18,6 +19,7 @@ export const CreateContentModal =({open, onClose}:{open:boolean, onClose:()=>voi
     const titleRef = useRef<HTMLInputElement | null>(null)
     const linkRef = useRef<HTMLInputElement | null>(null)
     const [type, setType] = useState(Contenttype.Youtube)
+    const {refresh} = useContent()
 
     async function addContent(){
         
@@ -27,7 +29,6 @@ export const CreateContentModal =({open, onClose}:{open:boolean, onClose:()=>voi
         await axios.post(`${BACKEND_URL}/api/content`, {title, link, type},{
             headers:{Authorization:localStorage.getItem("authorization")}
         })
-
 
     }
 
@@ -49,7 +50,7 @@ export const CreateContentModal =({open, onClose}:{open:boolean, onClose:()=>voi
 
                     <div className="flex gap-2 justify-center mt-4">
                         <Button text="Youtube" variant={type===Contenttype.Youtube ? "primary":"secondary"} size="md" onClick={()=>{setType(Contenttype.Youtube)}}/>
-                        <Button text="Twitter" variant={type===Contenttype.Youtube ? "primary":"secondary"} size="md" onClick={()=>{setType(Contenttype.Twitter)}}/>
+                        <Button text="Twitter" variant={type===Contenttype.Twitter ? "primary":"secondary"} size="md" onClick={()=>{setType(Contenttype.Twitter)}}/>
                         <Button text="Other" variant={type===Contenttype.Other ? "primary":"secondary"} size="md" onClick={()=>{setType(Contenttype.Other)}}/>
                     </div>
 

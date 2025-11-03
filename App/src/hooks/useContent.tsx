@@ -18,11 +18,15 @@ import axios from "axios";
         })
         setContents(response.data.content)
     }
+
+
+
     useEffect(()=>{
         fetch()
+
     },[])
 
 
 
-    return contents
+    return {contents, fetch}
  }

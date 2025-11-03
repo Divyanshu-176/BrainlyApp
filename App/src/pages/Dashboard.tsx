@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from '../components/ui/Button'
 import { Card } from '../components/ui/Card'
 import { CreateContentModal } from '../components/ui/CreateContentModal'
@@ -9,7 +9,9 @@ import { useContent } from '../hooks/useContent'
 
 export function Dashboard() {
   const [modalOpen, setModalOpen] = useState(false)
-  const contents = useContent()
+  const {contents,fetch} = useContent()
+
+  useEffect(()=>{fetch()},[fetch, modalOpen])
 
   return (<div>
     
@@ -33,10 +35,8 @@ export function Dashboard() {
 
 
 
-      <div className='flex gap-4 mt-4'>
-        <Card title='Youtube videos' link='https://www.youtube.com/watch?v=LL5pu9GzziA' type='youtube'/>
-        <Card title='Important tweet' link='https://x.com/piyush100x/status/1984972162747560005' type='twitter'/>
-        <Card title='Random' type='other'/>
+      <div className='flex gap-4 mt-4 flex-wrap'>
+        {contents.map(({title, link, type})=><Card type={type} link={link} title={title} />)}
       </div>
     
     

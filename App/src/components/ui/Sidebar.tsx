@@ -1,3 +1,4 @@
+import { BookIcon } from "../../icons/BookIcon";
 import { BrainIcon } from "../../icons/BrainIcon";
 import { Xicon } from "../../icons/XIcon";
 import { YoutubeIcon } from "../../icons/YoutubeIcon";
@@ -14,6 +15,8 @@ export function Sidebar(){
             <br />
             <SidebarItem icon={<Xicon/>} text="Twitter"/>
             <SidebarItem icon={<YoutubeIcon/>} text="Youtube"/>
+            <SidebarItem icon={<BookIcon/>} text="Others"/>
+            <SidebarItem icon={<BookIcon/>} text="All"/>            
         </div>
     </div>
 }

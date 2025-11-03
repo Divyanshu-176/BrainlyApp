@@ -1,5 +1,6 @@
 import { BookIcon } from "../../icons/BookIcon"
 import { DeleteIcon } from "../../icons/DeleteIcon"
+import { GotoIcon } from "../../icons/GotoIcon"
 import { ShareIcon } from "../../icons/ShareIcon"
 import { Xicon } from "../../icons/XIcon"
 import { YoutubeIcon } from "../../icons/YoutubeIcon"
@@ -30,7 +31,7 @@ export const Card = ({title, link, type} : cardProps) =>{
             </div>
 
             <div className="flex gap-3 items-center pr-2">
-                <div className="text-gray-500 cursor-pointer" onClick={() => window.open(link, '_blank')}><ShareIcon size="md"/></div>
+                {type==="other" ? '': <div className="text-gray-500 cursor-pointer" onClick={() => window.open(link, '_blank')}><GotoIcon/></div>}
                 <div className="text-gray-500 cursor-pointer"><DeleteIcon/></div>
             </div>
         </div>
