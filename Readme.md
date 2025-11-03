@@ -38,7 +38,7 @@ npm run dev
 
 #### 3. Access the App
 
-Visit `http://localhost:{portnumber}/Dashboard` to see the **demo version** without database configuration.
+## Visit `http://localhost:{portnumber}/Dashboard` to see the **demo version** without database configuration.
 
 ## ⚙️ Configuration
 
