@@ -6,6 +6,8 @@ import { PlusIcon } from '../icons/PlusIcon'
 import { ShareIcon } from '../icons/ShareIcon'
 import { Sidebar } from '../components/ui/Sidebar'
 import { useContent } from '../hooks/useContent'
+import axios from 'axios'
+import { BACKEND_URL } from '../config'
 
 export function Dashboard() {
   const [modalOpen, setModalOpen] = useState(false)
@@ -27,7 +29,25 @@ export function Dashboard() {
         <span className='pl-1 font-semibold text-4xl'>Add Notes</span>
         <div className='flex justify-end gap-4'>
           <Button onClick={()=>{setModalOpen(true)}} size="md" variant="primary" text="Add content" startIcon={<PlusIcon size={"md"}/>}/>
-          <Button size="md" variant="secondary" text="share" startIcon={<ShareIcon size={"md"}/>} />
+          <Button size="md" variant="secondary" text="share" startIcon={<ShareIcon size={"md"}/>} 
+
+
+          onClick={async () => {
+          try {
+            const response = await axios.post(`${BACKEND_URL}/api/brain/share`, { share: true },{
+              headers:{Authorization:localStorage.getItem("authorization")}
+            });
+  
+            const shareUrl = `http://localhost:5173${response.data.point}`;
+            console.log(`${shareUrl}`)
+          
+            await navigator.clipboard.writeText(shareUrl.toString());
+            alert("copied")
+          } catch (err) {
+            console.error("Error:", err);
+          }
+        }}/>
+
         </div>
         
       </div>

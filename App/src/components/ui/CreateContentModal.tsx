@@ -5,7 +5,6 @@ import { Button } from "./Button"
 import { Input } from "./Input"
 import axios from "axios"
 import { BACKEND_URL } from "../../config"
-import { useContent } from "../../hooks/useContent"
 
 
 
@@ -19,7 +18,6 @@ export const CreateContentModal =({open, onClose}:{open:boolean, onClose:()=>voi
     const titleRef = useRef<HTMLInputElement | null>(null)
     const linkRef = useRef<HTMLInputElement | null>(null)
     const [type, setType] = useState(Contenttype.Youtube)
-    const {refresh} = useContent()
 
     async function addContent(){
         
@@ -35,8 +33,8 @@ export const CreateContentModal =({open, onClose}:{open:boolean, onClose:()=>voi
     return <div>
         {open && <div className="w-screen h-screen bg-black fixed top-0 left-0 opacity-100  flex justify-center">
             
-            <div className="flex flex-col opacity-100 justify-center ">
-                <span className="bg-white opacity-100 p-4 rounded text-black">
+            <div className="flex flex-col justify-center ">
+                <span className="bg-white  p-4 rounded text-black">
                     <div className=" flex justify-end">
                         <div onClick={onClose} className="cursor-pointer">
                             <CrossIcon/>
