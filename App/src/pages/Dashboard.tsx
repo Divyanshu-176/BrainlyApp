@@ -34,7 +34,8 @@ export function Dashboard() {
 
 
       <div className='flex gap-4 mt-4'>
-        {/* {contents.map((title, type, link)=><Card type={type} title={title} link={link} />)} */}
+        <Card title='Youtube videos' link='https://www.youtube.com/watch?v=LL5pu9GzziA' type='youtube'/>
+        <Card title='Important tweet' link='https://x.com/piyush100x/status/1984972162747560005' type='twitter'/>
       </div>
     
     
