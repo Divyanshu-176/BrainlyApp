@@ -9,6 +9,11 @@ import { useContent } from '../hooks/useContent'
 import axios from 'axios'
 import { BACKEND_URL } from '../config'
 
+
+
+const url= "http://localhost:5173"
+
+
 export function Dashboard() {
   const [modalOpen, setModalOpen] = useState(false)
   const {contents,fetch} = useContent()
@@ -38,8 +43,8 @@ export function Dashboard() {
               headers:{Authorization:localStorage.getItem("authorization")}
             });
   
-            const shareUrl = `http://localhost:5173${response.data.point}`;
-            console.log(`${shareUrl}`)
+            const shareUrl = `${response.data.point}`;
+            console.log(`${url}${shareUrl}`)
           
             await navigator.clipboard.writeText(shareUrl.toString());
             alert("copied")
