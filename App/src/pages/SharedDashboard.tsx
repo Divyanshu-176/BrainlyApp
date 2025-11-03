@@ -46,7 +46,7 @@ const {sharelink} = useParams()
       
 
       <div className='flex justify-between gap-4'>
-        <span className='pl-1 font-semibold text-4xl'>Add Notes {username}</span>     
+        <span className='pl-1 font-medium text-2xl'>Brain From: <div className='text-4xl font-bold '>{username}</div> </span>     
       </div>
       
 

@@ -1,10 +1,11 @@
+import axios from "axios"
 import { BookIcon } from "../../icons/BookIcon"
 import { DeleteIcon } from "../../icons/DeleteIcon"
 import { GotoIcon } from "../../icons/GotoIcon"
 import { NoIcon } from "../../icons/NoIcon"
-import { ShareIcon } from "../../icons/ShareIcon"
 import { Xicon } from "../../icons/XIcon"
 import { YoutubeIcon } from "../../icons/YoutubeIcon"
+import { BACKEND_URL } from "../../config"
 
 interface cardProps{
     title:string,
@@ -32,8 +33,12 @@ export const Card = ({title, link, type} : cardProps) =>{
             </div>
 
             <div className="flex gap-3 items-center pr-2">
-                {type==="other" ? '': <div className="text-gray-500 cursor-pointer" onClick={() => window.open(link, '_blank')}><GotoIcon/></div>}
-                <div className="text-gray-500 cursor-pointer"><DeleteIcon/></div>
+                {/* {type==="other" ? '': <div className="text-gray-500 cursor-pointer" onClick={() => window.open(link, '_blank')}><GotoIcon/></div>} */}
+                <div onClick={() => window.open(link, '_blank')}><GotoIcon/></div>
+                <div onClick={async()=>{
+                    await axios.delete(`${BACKEND_URL}/api/content`,{} )
+                }} 
+                className="text-gray-500 cursor-pointer"><DeleteIcon/></div>
             </div>
         </div>
 
