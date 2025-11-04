@@ -43,7 +43,7 @@ export function Dashboard() {
               headers:{Authorization:localStorage.getItem("authorization")}
             });
   
-            const shareUrl = `${response.data.point}`;
+            const shareUrl = `${url}${response.data.point}`;
             console.log(`${url}${shareUrl}`)
           
             await navigator.clipboard.writeText(shareUrl.toString());

@@ -1,5 +1,7 @@
 import { BookIcon } from "../../icons/BookIcon";
 import { BrainIcon } from "../../icons/BrainIcon";
+import { DocIcon } from "../../icons/DocIcon";
+import { UrlIcon } from "../../icons/UrlIcon";
 import { Xicon } from "../../icons/XIcon";
 import { YoutubeIcon } from "../../icons/YoutubeIcon";
 import { SidebarItem } from "./SidebarItem";
@@ -13,9 +15,10 @@ export function Sidebar(){
                 <span className="text-4xl ml-2 font-semibold">Brainly</span>
             </div>
             <br />
-            <SidebarItem icon={<Xicon/>} text="Twitter"/>
+            <SidebarItem icon={<Xicon/>} text="Tweets"/>
             <SidebarItem icon={<YoutubeIcon/>} text="Youtube"/>
-            <SidebarItem icon={<BookIcon/>} text="Others"/>
+            <SidebarItem icon={<UrlIcon/>} text="Links"/>
+            <SidebarItem icon={<DocIcon/>} text="Document"/>
             <SidebarItem icon={<BookIcon/>} text="All"/>            
         </div>
     </div>
