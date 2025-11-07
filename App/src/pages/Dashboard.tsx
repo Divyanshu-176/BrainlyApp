@@ -15,6 +15,7 @@ const url= "http://localhost:5173"
 
 
 export function Dashboard() {
+  
   const [modalOpen, setModalOpen] = useState(false)
   const {contents,fetch} = useContent()
 
@@ -61,7 +62,7 @@ export function Dashboard() {
 
 
       <div className='flex gap-4 mt-4 flex-wrap'>
-        {contents.map(({title, link, type})=><Card type={type} link={link} title={title} />)}
+        {contents.map(({title, link, type,_id})=><Card type={type} link={link} title={title} contentId={_id} key={_id}/>)}
       </div>
 
         <br /><br /><br />
@@ -69,7 +70,7 @@ export function Dashboard() {
       <span>Fixed cards for demo (Still working on delete & sidebar)</span>
       <div className='flex gap-4 mt-4 flex-wrap'>
         
-        <Card type='youtube' title='Youtube Card' link='https://www.youtube.com/watch?v=XnQ7Py8D6v0'/>
+        <Card type='youtube' title='Youtube Card' link='https://www.youtube.com/watch?v=XnQ7Py8D6v0' />
         <Card type='twitter' title="X (Twitter) Card" link='https://x.com/ani_shots/status/1985412920616829387/photo/1' />
         <Card type="other" title='Random Reddit' link='https://www.reddit.com/r/VinlandSaga/comments/1cen9y5/my_top_20_vinland_saga_episodes/' />
       </div>

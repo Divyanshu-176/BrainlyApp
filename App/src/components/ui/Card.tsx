@@ -10,11 +10,24 @@ import { BACKEND_URL } from "../../config"
 interface cardProps{
     title:string,
     link?:string,
-    type: "twitter"|"youtube" |"other"
+    type: "twitter"|"youtube" |"other",
+    contentId:string
 }
 
 
-export const Card = ({title, link, type} : cardProps) =>{
+
+
+export const Card = ({title, link, type, contentId} : cardProps) =>{
+
+
+async function deleteCard(){
+    await axios.delete(`${BACKEND_URL}/api/content`, {
+        data: {contentId }, // for example
+        headers: { Authorization: localStorage.getItem("authorization") }
+});
+
+}
+
 
 
     return <div className="bg-white border-gray-200 border-2  rounded-xl p-4 max-w-70 min-w-70 min-h-48 transition-transform duration-200 hover:scale-103">
@@ -35,9 +48,11 @@ export const Card = ({title, link, type} : cardProps) =>{
             <div className="flex gap-3 items-center pr-2">
                 {/* {type==="other" ? '': <div className="text-gray-500 cursor-pointer" onClick={() => window.open(link, '_blank')}><GotoIcon/></div>} */}
                 <div onClick={() => window.open(link, '_blank')} className="cursor-pointer"><GotoIcon/></div>
-                <div onClick={async()=>{
-                    await axios.delete(`${BACKEND_URL}/api/content`,{} )
-                }} 
+                <div onClick={deleteCard}
+
+
+
+
                 className="text-gray-500 cursor-pointer"><DeleteIcon/></div>
             </div>
         </div>
