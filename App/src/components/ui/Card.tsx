@@ -46,7 +46,6 @@ async function deleteCard(){
             </div>
 
             <div className="flex gap-3 items-center pr-2">
-                {/* {type==="other" ? '': <div className="text-gray-500 cursor-pointer" onClick={() => window.open(link, '_blank')}><GotoIcon/></div>} */}
                 <div onClick={() => window.open(link, '_blank')} className="cursor-pointer"><GotoIcon/></div>
                 <div onClick={deleteCard}
 

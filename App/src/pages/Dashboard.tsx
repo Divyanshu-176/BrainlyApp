@@ -10,7 +10,6 @@ import axios from 'axios'
 import { BACKEND_URL } from '../config'
 
 
-
 const url= "http://localhost:5173"
 
 
@@ -20,6 +19,7 @@ export function Dashboard() {
   const {contents,fetch} = useContent()
 
   useEffect(()=>{fetch()},[fetch, modalOpen])
+
 
   return (<div>
     
